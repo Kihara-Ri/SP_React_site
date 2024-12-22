@@ -21,6 +21,10 @@ const Carousel: React.FC = () => {
     ));
   };
 
+  const handleChangeSlider = () => {
+    console.log(`切换至${currentIndex}`)
+  }
+
   return (
     <div className="carousel">
       <button className="carousel-button prev" onClick={ prevSlide }>

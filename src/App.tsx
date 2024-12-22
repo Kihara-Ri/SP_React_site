@@ -5,6 +5,10 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import JoinUs from './components/JoinUs';
 import Carousel from './components/Carousel';
+import ImageTextBlock from './components/ImageTextBlock';
+
+import img1 from './assets/group_assests/IMG_4261.png';
+import img2 from './assets/group_assests/IMG_4262.png';
 
 function App() {
 
@@ -14,6 +18,15 @@ function App() {
       <Navbar />
       <div className="content-container">
         <Carousel />
+        <ImageTextBlock
+          imageSrc={img1}
+          text="这是一个图文组件"
+        />
+        <ImageTextBlock
+          imageSrc={img2}
+          text="这是一个方向相反的图文组件"
+          imageOnRight={true}
+        />
         <JoinUs />
       </div>
       <BackToTop />

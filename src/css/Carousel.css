@@ -1,18 +1,17 @@
 /* 主容器样式 */
 .carousel {
   position: relative;
-  width: 1200px; /* 调整轮播图宽度 */
-  height: 800px; /* 调整轮播图高度 */
-  margin: 0 auto;
-  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 2 / 1; /* 保持宽高比 */
+  margin: 20px auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: #f9f9f9; /* 可选：为轮播图添加背景色 */
-  border-radius: 12px; /* 可选：为容器添加圆角 */
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
 }
 
-/* 图片容器样式 */
 .carousel-images {
   position: relative;
   display: flex;
@@ -22,40 +21,44 @@
   height: 100%;
 }
 
-/* 图片样式 */
+/* 图片容器, 动画层叠透明度 */
 .carousel-image {
   position: absolute;
+  /* width: 70%; */
+  /* height: 80%; */
+  display: flex; /* 用来让图片居中对齐 */
+  justify-content: center;
+  align-items: center;
   transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 1; /* 层级控制 */
+  opacity: 0.8;
 }
 
+/* 图片内容本身 */
 .carousel-image img {
+  width: 100%; /* 图片宽度与容器一致 */
+  height: 100%;
+  max-width: 800px;
+  max-height: 90%;
+  object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease;
-
-  /* 添加图片大小约束 */
-  max-width: 80%; /* 最大宽度为容器宽度的80% */
-  max-height: 80%; /* 最大高度为容器高度的80% */
-  object-fit: cover; /* 确保图片始终按比例缩放并填充可用空间 */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* 图片位置样式 */
 .carousel-image.center {
-  transform: scale(1.2) translateX(0);
+  transform: translateX(0) scale(1.1);
   z-index: 3;
   opacity: 1;
 }
 
 .carousel-image.left {
-  transform: scale(0.8) translateX(-200px);
+  transform: translateX(-30%) scale(0.8);
   z-index: 2;
-  opacity: 0.6;
 }
 
 .carousel-image.right {
-  transform: scale(0.8) translateX(200px);
+  transform: translateX(30%) scale(0.8);
   z-index: 2;
-  opacity: 0.6;
 }
 
 .carousel-image.hidden {
@@ -64,12 +67,11 @@
   opacity: 0;
 }
 
-/* 按钮样式 */
 .carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -82,30 +84,29 @@
 .carousel-button.prev {
   left: 20px;
 }
-
 .carousel-button.next {
   right: 20px;
 }
 
 .carousel-button:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
 }
 
-/* 指示条样式 */
 .carousel-indicators {
   position: absolute;
-  bottom: 20px;
+  bottom: 15%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  z-index: 5;
 }
 
 .indicator {
   width: 10px;
   height: 10px;
-  margin: 0 5px;
-  border-radius: 50%;
+  border-radius: 50px;
   background: #ccc;
   transition: background 0.3s ease;
 }
