@@ -24,8 +24,8 @@
 /* 图片容器, 动画层叠透明度 */
 .carousel-image {
   position: absolute;
-  /* width: 70%; */
-  /* height: 80%; */
+  width: 70%;
+  height: 80%;
   display: flex; /* 用来让图片居中对齐 */
   justify-content: center;
   align-items: center;

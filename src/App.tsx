@@ -6,6 +6,8 @@ import BackToTop from './components/BackToTop';
 import JoinUs from './components/JoinUs';
 import Carousel from './components/Carousel';
 import ImageTextBlock from './components/ImageTextBlock';
+import AboutInfo from './components/AboutInfo';
+import ScrollingCarousel from './components/ScrollingCarousel';
 
 import img1 from './assets/group_assests/IMG_4261.png';
 import img2 from './assets/group_assests/IMG_4262.png';
@@ -17,6 +19,8 @@ function App() {
       <OpenGraph />
       <Navbar />
       <div className="content-container">
+        <AboutInfo />
+        <ScrollingCarousel />
         <Carousel />
         <ImageTextBlock
           imageSrc={img1}

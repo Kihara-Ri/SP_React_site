@@ -1,0 +1,41 @@
+/* 容器样式 */
+.carousel-container {
+  width: 100%; /* 占据页面宽度 */
+  overflow: hidden; /* 隐藏超出部分 */
+  white-space: nowrap; /* 强制图片一行排列 */
+  position: relative;
+  display: flex;
+}
+
+/* 滚动轨道 */
+.carousel-track {
+  display: flex;
+  margin: 20px;
+  width: max-content; /* 保证内部宽度根据内容自动扩展 */
+  position: relative;
+}
+
+/* 单个图片项 */
+.carousel-item {
+  flex: 0 0 auto; /* 保证固定宽度 */
+  width: 300px; /* 图片宽度 */
+  margin-right: 10px; /* 图片间距 */
+  position: relative;
+  overflow: visible;
+}
+
+.carousel-item img {
+  width: 100%; /* 图片填满容器 */
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+}
+
+/* 鼠标悬停放大效果 */
+.carousel-item img:hover {
+  transform: scale(1.05); /* 图片放大 */
+  cursor: pointer;
+  box-shadow: 0 7px 12px rgba(0,0,0,0.3);
+  z-index: 10;
+}

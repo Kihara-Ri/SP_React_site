@@ -3,8 +3,8 @@ import '../css/Carousel.css';
 
 const images = [
   '../src/assets/group_assests/IMG_4250.png',
-  '../src/assets/group_assests/IMG_4256.PNG',
-  '../src/assets/group_assests/IMG_4257.PNG',
+  '../src/assets/group_assests/IMG_4256.png',
+  '../src/assets/group_assests/IMG_4257.png',
 ]
 const Carousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

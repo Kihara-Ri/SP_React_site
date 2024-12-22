@@ -14,8 +14,12 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
 }) => {
   return (
     <div className={`image-text-block ${imageOnRight ? 'image-right' : 'image-left'}`}>
-      <img src={imageSrc} alt="图文组件图片" className="image" />
-      <div className="text">{text}</div>
+      <div className="image-section">
+        <img src={imageSrc} alt="Illustration" />
+      </div>
+      <div className="text-section">
+        <p>{text}</p>
+      </div>
     </div>
   );
 };
