@@ -1,0 +1,30 @@
+import React from 'react';
+import '../css/Footer.css';
+import react_icon from '../assets/icons/react.svg';
+import github from '../assets/icons/github.svg';
+import bilibili from '../assets/icons/bilibili.svg';
+import QQ from '../assets/icons/QQ.svg';
+
+const Footer: React.FC = () => {
+
+  return (
+    <footer className="footer">
+      <div className="copy-right">
+        <p>Copyright © 2024 Kihara Ri</p>
+        <p>Made with{' '}
+          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="react-link">
+          <img src={react_icon} alt="React logo" className="react-icon" /> React </a></p>
+      </div>
+      <div className="footer-container">
+        <a href="https://github.com/Kihara-Ri" target="_blank" rel="noopener noreferrer">
+        <img src={github} alt="GitHub logo" className="footer-icon" /></a>
+        <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ELMIzibXwJ9f6NJsHV-YWhKdxR71msIi&authKey=CwJ3FopgAxUucg3OlyAqP4EYiKfRsFkzOdYnO7gyiutiglBjL0HcVcMU38mddlk0&noverify=0&group_code=750301419" target="_blank" rel="noopener noreferrer">
+        <img src={QQ} alt="QQ logo" className="footer-icon" /></a>
+        <a href="https://space.bilibili.com/631081975" target="_blank" rel="noopener noreferrer">
+        <img src={bilibili} alt="logo" className="footer-icon" /></a>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer;
