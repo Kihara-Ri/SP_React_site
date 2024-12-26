@@ -2,11 +2,7 @@ import Matter, { Engine, Render, Runner, Bodies, Composite, Body, Events } from 
 import Balloon from './Balloon.ts';
 
 // 创建物理世界的边界
-function createBoundaries (world: Matter.World, parentContainer: HTMLElement) {
-  const parentContainerRect = parentContainer.getBoundingClientRect();
-  const width = parentContainerRect.right - parentContainerRect.left;
-  const height = parentContainerRect.bottom - parentContainerRect.top;
-
+function createBoundaries (world: Matter.World, width: number, height: number) {
   const ground = Bodies.rectangle(width / 2, height + 10, width, 20, { isStatic: true });
   const ceiling = Bodies.rectangle(width / 2, -10, width, 20, { 
     restitution: 0.9, // 弹性
@@ -17,28 +13,19 @@ function createBoundaries (world: Matter.World, parentContainer: HTMLElement) {
 }
 
 // 创建多个气球实例
-function createBalloons(world: Matter.World, balloonCount = 20, parentContainer: HTMLElement, onExplodeCallback: (arg: Balloon) => void) {
-  const rect = parentContainer.getBoundingClientRect();
-  const pWidth = rect.right - rect.left;
-  const pHeight = rect.bottom - rect.top;
-  
-  const balloons = [];
-  for (let i = 0; i < balloonCount; i++) {
-    const x = Math.random() * pWidth;
-    const y = (Math.random() * 0.3 + 0.7) * pHeight;
-    const radius = 30 + Math.random() * 20; // 随机半径(30-50)
-    const color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`; // 随机颜色
+function createBalloons(world: Matter.World, count = 20, container: HTMLElement, onExplode: (balloon: Balloon) => void) {
+  const { width, height } = container.getBoundingClientRect();
+  return Array.from({ length: count }, () => {
+    const x = Math.random() * width;
+    const y = Math.random() * height * 0.3 + height * 0.7; // 随机位置 (底部 30% 区域)
+    const radius = 30 + Math.random() * 20; // 随机半径 (30-50)
+    const color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+
     const balloon = new Balloon(x, y, radius, color);
-
     balloon.add(world, ".balloons-container");
-    balloons.push(balloon);
-
-    // 监听气球爆炸事件
-    balloon.onExplode(() => {
-      onExplodeCallback(balloon);
-    })
-  }
-  return balloons;
+    balloon.onExplode(() => onExplode(balloon));
+    return balloon;
+  });
 }
 
 // 为每个气球添加轻微的扰动
@@ -52,121 +39,78 @@ function applyRandomForces(balloons: Balloon[], forceMagnitude = 0.001) {
 }
 
 // 初始化物理引擎和渲染器
-function setupEngineAndRender(selector = '.balloons-container') {
-  const element = document.body.querySelector(selector);
-  let parentContainer: HTMLElement | null = null;
-  if (element === null) {
-    return console.error(`渲染器挂载失败: 没有找到 selector: ${selector}`);
-  } else {
-    console.log(`画布挂载: ${element}`)
-    parentContainer = element as HTMLElement;
-    const parentContainerRect = parentContainer.getBoundingClientRect();
+function setupEngineAndRender(canvas: HTMLCanvasElement, container: HTMLElement) {
+  const { width, height } = container.getBoundingClientRect();
+  const engine = Engine.create();
+  const render = Render.create({
+    canvas,
+    engine,
+    options: {
+      width,
+      height,
+      wireframes: false,
+      background: 'transparent',
+    },
+  });
 
-    // 计算父容器尺寸
-    const pWidth = parentContainerRect.right - parentContainerRect.left;
-    const pHeight = parentContainerRect.bottom - parentContainerRect.top;
-
-    const engine = Engine.create();
-    const render = Render.create({
-      element: parentContainer,
-      engine: engine,
-      options: {
-        // 按照父容器尺寸添加画布
-        width: pWidth,
-        height: pHeight,
-        wireframes: false, // 线框模式 true不渲染颜色
-        background: 'transparent', // 透明, 防止遮挡页面其它元素
-      }
-    });
-  
-    // 设置画布样式
-    const canvas = render.canvas;
-    canvas.style.border = '0';
-    canvas.style.borderRadius = '12px';
-  
-    engine.gravity.y = 0;
-    console.log("渲染器挂载成功");
-    return { engine, render, parentContainer, canvas};
-  };
-};
+  return { engine, render, width, height };
+}
 
 // 初始化按钮逻辑
 function setupToggle(engine: Matter.Engine, balloons: Balloon[]) {
-  const toggleButton = document.getElementById("toggle-gravity");
-  if (toggleButton === null) return console.error("按钮寻找失败");
-  let gravityEnabled = false;
-  toggleButton.addEventListener("click", () => {
-    if (!gravityEnabled) {
-      // 启用重力
-      gravityEnabled = true;
-      engine.gravity.y = -0.1;
-      toggleButton.textContent = `禁用\n重力`;
+  const button = document.getElementById("toggle-gravity");
+  if (button === null) return console.error("按钮未找到");
 
-      // 为每个气球设置爆炸计时器
-      balloons.forEach((balloon) => {
+  let gravityEnabled = false;
+  button.addEventListener("click", () => {
+    gravityEnabled = !gravityEnabled;
+    engine.gravity.y = gravityEnabled ? -0.1 : 0;
+    button.textContent = gravityEnabled ? `禁用\n重力` : `启用\n重力`;
+
+    if (gravityEnabled) {
+      balloons.forEach(balloon => {
         const explodeTime = 5000 + Math.random() * 10000;
-        setTimeout(() => {
-          balloon.explode();
-        }, explodeTime);
+        setTimeout(() => balloon.explode(), explodeTime);
       });
-    } else {
-      // 禁用重力
-      gravityEnabled = false;
-      engine.gravity.y = 0;
-      toggleButton.textContent = `启用\n重力`;
     }
   });
 }
 
-function main() {
+function main(canvas: HTMLCanvasElement, container: HTMLElement) {
   // 初始化物理引擎和渲染器
-  const setup = setupEngineAndRender();
-  if (!setup) {
-    console.error("engine 和 render 初始化失败");
-  } else {
-    const { engine, render, parentContainer, canvas } = setup;
+  const { engine, render, width, height } = setupEngineAndRender(canvas, container);
+  const world = engine.world;
 
-    const world = engine.world;
-    // 创建物理世界边界
-    createBoundaries(world, parentContainer);
+  // 创建物理世界边界
+  createBoundaries(world, width, height);
+  // 创建气球
+  const balloons = createBalloons(world, 20, container, balloon => {
+    console.log(`气球爆炸, 剩余气球: ${balloons.length - 1}`);
+  });
+  // 启动引擎和渲染器
+  Render.run(render);
+  const runner = Runner.create();
+  Runner.run(runner, engine);
+  
+  //==========================================================================================
+  //=========================================== 运行中 ========================================
+  //==========================================================================================
+  
+  // 添加事件监听
 
-    // 创建气球
-    let remainingBalloons = 20;
-    const balloons = createBalloons(world, remainingBalloons, parentContainer, (explodedBalloon) => {
-      remainingBalloons--;
-      console.log(`剩余气球: ${remainingBalloons}`);
-      if (remainingBalloons === 0) {
-        console.log("气球全部爆炸💥💥💥");
-      }
-    });
-    // 启动引擎和渲染器
-    Render.run(render);
-    const runner = Runner.create();
-    Runner.run(runner, engine);
-    //==========================================================================================
-    //=========================================== 运行中 ========================================
-    //==========================================================================================
-    // 为每帧添加随机力
-    Events.on(engine, "beforeUpdate", () => {
-      applyRandomForces(balloons);
-    });
+  // 添加随机扰动
+  Events.on(engine, "beforeUpdate", () => {
+    applyRandomForces(balloons);
+  });
 
-    // 监视更新画布尺寸
-    Events.on(engine, "before", () => {
-      const rect = parentContainer.getBoundingClientRect();
+  // 更新气球 DOM 的位置
+  Events.on(engine, "afterUpdate", () => {
+    balloons.forEach((balloon) => balloon.updatePosition());
+  })
 
-      canvas.width = rect.right - rect.left;
-      canvas.height = rect.top - rect.bottom;
-    })
-
-    // 更新气球 DOM 的位置
-    Events.on(engine, "afterUpdate", () => {
-      balloons.forEach((balloon) => balloon.updatePosition());
-    })
-
-    // 设置重力切换按钮逻辑
-    setupToggle(engine, balloons);
-    }
+  // 设置重力切换按钮逻辑
+  setupToggle(engine, balloons);
 }
+
 
 export default main;
