@@ -8,6 +8,7 @@ import Carousel from './components/Carousel';
 import ImageTextBlock from './components/ImageTextBlock';
 import AboutInfo from './components/AboutInfo';
 import ScrollingCarousel from './components/ScrollingCarousel';
+import BalloonsScene from './components/BalloonsScene';
 
 import img1 from './assets/group_assests/IMG_4261.png';
 import img2 from './assets/group_assests/IMG_4262.png';
@@ -31,6 +32,7 @@ function App() {
           text="这是一个方向相反的图文组件"
           imageOnRight={true}
         />
+        <BalloonsScene />
         <JoinUs />
       </div>
       <BackToTop />

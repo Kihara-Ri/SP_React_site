@@ -10,7 +10,8 @@ const AboutInfo: React.FC = () => {
     <section className="about-container">
       <h2 className="about-title">海の城</h2>
       <p>我们是一个拥有200+成员的Minecraft玩家群体</p>
-      <p>无论你是
+      <p>无论你是</p>
+      <p>
         <img src={redstone_dust_icon} className="inline-icon" />
         硬核生电玩家, 还是
         <img src={brick_icon} className="inline-icon" />

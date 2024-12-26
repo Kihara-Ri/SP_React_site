@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
           logo
         </a>
         <ul className="navbar-links">
-          <li><a href="/">链接1</a></li>
-          <li><a href="/">链接2</a></li>
-          <li><a href="/">链接3</a></li>
+          <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ELMIzibXwJ9f6NJsHV-YWhKdxR71msIi&authKey=CwJ3FopgAxUucg3OlyAqP4EYiKfRsFkzOdYnO7gyiutiglBjL0HcVcMU38mddlk0&noverify=0&group_code=750301419">QQ群</a></li>
+          <li><a href="https://space.bilibili.com/631081975">bilibili</a></li>
+          <li><a href="https://github.com/Kihara-Ri/SP_React_site">关于网站</a></li>
         </ul>
       </div>
     </nav>
