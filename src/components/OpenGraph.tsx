@@ -2,15 +2,20 @@ import React, { useEffect, useState} from 'react';
 import '../css/OpenGraph.css';
 
 function OpenGraph() {
-  const [overlayOpacity, setOverlayOpacity] = useState(0);
+  const [overlayOpacity, setOverlayOpacity] = useState(0); // 控制overlay透明度
+  const [blurAmount, setBlurAmount] = useState(0); // 控制图片模糊程度
 
   useEffect(() => {
     const handleScrollEffect = () => {
       const scrollY = window.scrollY; // 当前滚动距离
       const targetHeight = document.querySelector(".OpenGraph")!.clientHeight; // 开屏图片高度
       const newOverlayOpacity = Math.min(scrollY / targetHeight, 1) // 根据滚动距离计算叠加层透明度
-      
       setOverlayOpacity(newOverlayOpacity);
+
+      // 计算模糊程度 滚动到图片一半时模糊度达到最大值
+      const maxBlur = 8;
+      const newBlurAmount = Math.min((scrollY / (targetHeight / 2)) * maxBlur, maxBlur);
+      setBlurAmount(newBlurAmount);
     }
     window.addEventListener("scroll", handleScrollEffect);
 
@@ -55,6 +60,12 @@ function OpenGraph() {
       <div
         className="overlay"
         style={{ opacity: overlayOpacity }}
+      ></div>
+      <div
+        className="open-image"
+        style={{
+          filter: `blur(${blurAmount}px)` // 应用模糊度
+        }}
       ></div>
       <h1 className="title">Minecraft</h1>
       <div className="scroll_button" onClick={ handleScroll }></div>
