@@ -1,4 +1,5 @@
 import { Bodies, Composite, Vector, Body, World } from 'matter-js';
+import '../css/balloon.css';
 
 // 随机向量生成函数
 function randomVector(){
@@ -39,19 +40,17 @@ class Balloon {
 
     // 创建 DOM 元素
     this.element = document.createElement("div");
+    this.element.className = "balloon";
     this.setupElement(radius, color);
   }
   private setupElement(radius: number, color: string): void {
+    // 动态生成渐变背景
+    const gradient = this.createGradient(color);
+
+    // 设置 DOM 元素样式
     this.element.style.width = `${radius * 2}px`;
     this.element.style.height = `${radius * 2}px`;
-    this.element.style.backgroundColor = color;
-    this.element.style.border = "1px solid";
-    this.element.style.borderColor = "#fff";
-    this.element.style.borderRadius = "50%";
-    this.element.style.position = "absolute";
-    this.element.style.transform = "translate(-50%, -50%)";
-    this.element.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
-    this.element.style.cursor = "pointer";
+    this.element.style.backgroundColor = gradient; // 使用渐变背景
 
     // 添加点击事件
     this.element.addEventListener("click", () => this.explode());
@@ -169,6 +168,22 @@ class Balloon {
       render: this.body.render
     });
     Composite.add(this.world, this.body);
+  };
+
+  // 生成渐变字符串
+  private createGradient(baseColor: string): string {
+    // 提取颜色值 rgb 格式
+    const rgbMatch = baseColor.match(/\d+/g);
+    if (!rgbMatch) return baseColor;
+
+    const [r, g, b] = rgbMatch.map(Number);
+
+    // 生成较浅和较深的颜色
+    const lighterColor = `rgb(${Math.min(r + 50, 255)}, ${Math.min(g + 50, 255)}, ${Math.min(b + 50, 255)})`;
+    const darkerColor = `rgb(${Math.max(r - 50, 0)}, ${Math.max(g - 50, 0)}, ${Math.max(b - 50, 0)})`;
+
+    // 返回CSS渐变字符串
+    return `radial-gradient(circle at 50% 30%, ${lighterColor}, ${darkerColor})`;
   }
 }
 

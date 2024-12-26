@@ -52,6 +52,7 @@ function setupEngineAndRender(canvas: HTMLCanvasElement, container: HTMLElement)
       background: 'transparent',
     },
   });
+  engine.gravity.y = 0;
 
   return { engine, render, width, height };
 }
@@ -91,7 +92,7 @@ function main(canvas: HTMLCanvasElement, container: HTMLElement) {
   Render.run(render);
   const runner = Runner.create();
   Runner.run(runner, engine);
-  
+
   //==========================================================================================
   //=========================================== 运行中 ========================================
   //==========================================================================================
