@@ -66,7 +66,7 @@ function setupToggle(engine: Matter.Engine, balloons: Balloon[]) {
   button.addEventListener("click", () => {
     gravityEnabled = !gravityEnabled;
     engine.gravity.y = gravityEnabled ? -0.1 : 0;
-    button.textContent = gravityEnabled ? `禁用\n重力` : `启用\n重力`;
+    button.textContent = gravityEnabled ? `放飞\n气球` : `禁用\n浮力`;
 
     if (gravityEnabled) {
       balloons.forEach(balloon => {

@@ -38,7 +38,7 @@ const BalloonsScene: React.FC = () => {
         id="toggle-gravity"
         style={{ whiteSpace: 'pre-wrap', textAlign: 'center'}}
         >
-        启用{"\n"}重力
+        放飞{"\n"}气球
       </button>
     </div>
   )

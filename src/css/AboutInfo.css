@@ -1,9 +1,44 @@
 .about-container {
+  position: relative;
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: #f2efe9;
+  z-index: 1;
+  clip-path: polygon(
+    -10% -10%,
+    calc(100% - 60px) 0,
+    100% 60px,
+    110% 110%,
+    -10% 110%
+  ); /* 裁掉右上角 */
+  /* 可以做到折角但是阴影不好设置 */
+  /* background: linear-gradient(
+    to left bottom,
+    transparent 50%,
+    rgba(236, 219, 188, 0.6) 0
+    ) no-repeat 100% 0 / 60px 60px,
+    linear-gradient(225deg, transparent 42.5px, #f2efe9 0); */
+}
+
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  /* background: linear-gradient(
+    to left bottom,
+    transparent 50%,
+    rgba(140, 116, 71, 0.6) 0
+  ); */
+  background: #c1b38d;
+  box-shadow: -2px 4px 8px rgba(0,0,0,0.1);
+  clip-path: polygon(-10% -10%, -10% 110%, 110% 110%);
+  z-index: 2;
 }
 
 .about-title {
@@ -25,6 +60,7 @@
 .about-container p:last-of-type {
   font-style: italic;
   color: #34495e;
+  margin-bottom: 20px;
 }
 
 .inline-icon {
