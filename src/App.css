@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Alibaba Sans';
+  font-weight: 500;
 }
 
 .content-container {
@@ -16,4 +18,6 @@
   align-items: center;
   box-sizing: border-box;
   margin: 0 auto;
+  background-color: var(--background-white);
+  box-shadow: 0 0 30px var(--primary-opacity);
 }

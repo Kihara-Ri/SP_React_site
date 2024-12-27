@@ -9,6 +9,7 @@ import ImageTextBlock from './components/ImageTextBlock';
 import AboutInfo from './components/AboutInfo';
 import ScrollingCarousel from './components/ScrollingCarousel';
 import BalloonsScene from './components/BalloonsScene';
+import Illustrate from './components/Illustrate/Illustrate';
 
 import img1 from './assets/group_assests/IMG_4261.png';
 import img2 from './assets/group_assests/IMG_4262.png';
@@ -21,17 +22,38 @@ function App() {
       <Navbar />
       <div className="content-container">
         <AboutInfo />
+        <h1 style={{marginBottom: 0,}}>Freedom to the Fullest</h1>
+        <h1 style={{margin: 0}}>做任何你想做的事</h1>
         <ScrollingCarousel />
+        <h1 style={{marginBottom: 0}}>Vibrant Community</h1>
+        <h1 style={{margin: 0}}>活跃的社区</h1>
         <Carousel />
+        <h2 style={{margin: 0}}>觉得无聊?</h2>
+        <h2 style={{margin: 0}}>我们会经常举办各种活动</h2>
+        <h2 style={{marginTop: 0}}>或者仅是贴贴</h2>
+
+        <h1 style={{marginBottom: 0}}>但是</h1>
+        <h1 style={{margin: 0}}>发挥你的才能!</h1>
         <ImageTextBlock
           imageSrc={img1}
-          text="这是一个图文组件"
+          text={[
+            "发挥你的创造力",
+            "一起建造精美的建筑",
+            "构建绝妙的风景",
+            "加入我们, 打造无限可能"
+          ]}
         />
         <ImageTextBlock
           imageSrc={img2}
-          text="这是一个方向相反的图文组件"
+          text={[
+            "怀着学习的热情",
+            "精进红石知识",
+            "打造复杂的机器",
+            "享受进步的快感"
+          ]}
           imageOnRight={true}
         />
+        <Illustrate />
         <BalloonsScene />
         <JoinUs />
       </div>

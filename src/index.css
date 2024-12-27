@@ -2,6 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --background-white: #f9f9f9;
+  --background-gray: #c0c0c0;
+  --primary-opacity: rgb(0, 0, 0, 0.2);
+  --font-black: #303d56;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -9,6 +13,52 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  font-size: 32px;
+  color: var(--font-black);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--font-black);
+}
+
 body {
   margin: 0;
+}
+
+@font-face {
+  font-family: 'Alibaba Sans';
+  src: url('./assets/fonts/Alibaba_PuHuiTi_2.0_45_Light_45_Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alibaba Sans';
+  src: url('./assets/fonts/Alibaba_PuHuiTi_2.0_55_Regular_85_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alibaba Sans';
+  src: url('./assets/fonts/Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.light-text {
+  font-family: 'Alibaba Sans', sans-serif;
+  font-weight: 300;
+}
+
+.normal-text {
+  font-family: 'Alibaba Sans', sans-serif;
+  font-weight: 500;
+}
+
+.light-text {
+  font-family: 'Alibaba Sans', sans-serif;
+  font-weight: 700;
 }

@@ -4,13 +4,13 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: var(--background-white);
   border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 8px 20px var(--primary-opacity); */
   width: 300px;
   margin: 20px auto;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .join-us-container:hover {

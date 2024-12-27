@@ -49,7 +49,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   animation: bounce 1.5s infinite;
@@ -57,7 +57,7 @@
 }
 
 .scroll_button:hover {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(215, 215, 215, 0.8);
 }
 
 @keyframes bounce {
