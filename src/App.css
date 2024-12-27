@@ -46,6 +46,6 @@
 }
 
 .issue-a:hover {
-  color: var(--background-black);
-  filter: brightness(1.3)
+  color: #54adde;
+  filter: brightness(1.2)
 }

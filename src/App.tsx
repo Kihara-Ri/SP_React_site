@@ -10,6 +10,7 @@ import AboutInfo from './components/AboutInfo';
 import ScrollingCarousel from './components/ScrollingCarousel';
 import BalloonsScene from './components/BalloonsScene';
 import Illustrate from './components/Illustrate/Illustrate';
+import Citation from './components/Citation';
 
 import Issues from './assets/icons/issues.svg';
 import img1 from './assets/group_assests/IMG_4261.png';
@@ -55,8 +56,12 @@ function App() {
           ]}
           imageOnRight={true}
         />
-        <h1 style={{ marginBottom: 0}}>"闲来垂钓碧溪上</h1>
-        <h1 style={{ marginBottom: 0}}>忽复乘舟梦日边"</h1>
+        <Citation
+          text={[
+            "闲来垂钓碧溪上",
+            "忽复乘舟梦日边"
+          ]}
+        />
         <Illustrate />
         {/* <BalloonsScene /> */}
         <JoinUs />

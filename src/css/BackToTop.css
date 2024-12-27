@@ -18,6 +18,16 @@
   transition: background 0.3s, transform 0.3s;
 }
 
+.back-to-top.fade-in {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.back-to-top.fade-out {
+  transform: scale(0);
+  opacity: 0;
+}
+
 .back-to-top:hover {
   background: #1da1f2;
   transform: scale(1.1);
@@ -25,4 +35,9 @@
 
 .back-to-top:active {
   transform: scale(0.9);
+}
+
+.back-to-top span {
+  font-size: 14px;
+  font-weight: bold;
 }
