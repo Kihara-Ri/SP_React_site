@@ -4,11 +4,12 @@
   padding: 20px;
   font-size: 14px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* 保证子元素等间距分布 */
   align-items: center;
 }
 
 .copy-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,13 +54,18 @@
 }
 
 .center-info {
+  flex: 1;
   font-size: 1.5rem;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-container {
+  flex: 1;
   display: flex;
   gap: 15px;
+  justify-content: flex-end;
 }
 
 .footer-container img {
