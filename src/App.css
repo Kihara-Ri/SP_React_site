@@ -21,3 +21,31 @@
   background-color: var(--background-white);
   box-shadow: 0 0 30px var(--primary-opacity);
 }
+
+.more-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.more-info p {
+  font-weight: 300;
+  align-items: center;
+  margin: 0;
+}
+
+.inline-icon {
+  vertical-align: middle;
+}
+
+.issue-a {
+  color: var(--font-black);
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.issue-a:hover {
+  color: var(--background-black);
+  filter: brightness(1.3)
+}

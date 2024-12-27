@@ -67,7 +67,7 @@ function OpenGraph() {
           filter: `blur(${blurAmount}px)` // 应用模糊度
         }}
       ></div>
-      <h1 className="title">Minecraft</h1>
+      <h1 className="title">Every Minecrafter へ</h1>
       <div className="scroll_button" onClick={ handleScroll }></div>
     </div>
   )

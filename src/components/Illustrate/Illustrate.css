@@ -1,0 +1,17 @@
+.illustrate-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: rgb(133, 133, 133); */
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.get-fries {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0 20px 0;
+  align-items: center;
+}

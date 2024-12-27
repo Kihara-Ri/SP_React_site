@@ -11,8 +11,10 @@ import ScrollingCarousel from './components/ScrollingCarousel';
 import BalloonsScene from './components/BalloonsScene';
 import Illustrate from './components/Illustrate/Illustrate';
 
+import Issues from './assets/icons/issues.svg';
 import img1 from './assets/group_assests/IMG_4261.png';
 import img2 from './assets/group_assests/IMG_4262.png';
+
 
 function App() {
 
@@ -30,7 +32,7 @@ function App() {
         <Carousel />
         <h2 style={{margin: 0}}>觉得无聊?</h2>
         <h2 style={{margin: 0}}>我们会经常举办各种活动</h2>
-        <h2 style={{marginTop: 0}}>或者仅是贴贴</h2>
+        <h2 style={{marginTop: 0}}>或者...贴贴</h2>
 
         <h1 style={{marginBottom: 0}}>但是</h1>
         <h1 style={{margin: 0}}>发挥你的才能!</h1>
@@ -53,9 +55,20 @@ function App() {
           ]}
           imageOnRight={true}
         />
+        <h1 style={{ marginBottom: 0}}>"闲来垂钓碧溪上</h1>
+        <h1 style={{ marginBottom: 0}}>忽复乘舟梦日边"</h1>
         <Illustrate />
-        <BalloonsScene />
+        {/* <BalloonsScene /> */}
         <JoinUs />
+        <div className="more-info">
+          <p>如果你有关于本站建设的意见和建议</p>
+          <p>请在此处提交 
+            <a href="https://github.com/Kihara-Ri/SP_React_site/issues"
+            className="issue-a"
+            >
+            <img src={Issues} alt="issues-icon" className="inline-icon" />
+            Issues</a></p>
+        </div>
       </div>
       <BackToTop />
       <Footer />

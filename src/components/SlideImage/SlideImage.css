@@ -1,0 +1,47 @@
+.slide-container {
+  position: relative;
+  max-width: 800px;
+  overflow: hidden;
+  margin: 0 auto; /* 居中容器 */
+}
+
+.slide-wrapper {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide-image {
+  width: 100%; /* 图片宽度占满容器 */
+  height: auto;
+  box-shadow: 0 0 10px var(--primary-opacity);
+}
+
+.slide-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+}
+
+.slide-control.prev {
+  left: 10px;
+}
+
+.slide-control.next {
+  right: 10px;
+}
+
+.fixed-aspect-ratio {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
