@@ -35,7 +35,7 @@ function App() {
         <h2 style={{margin: 0}}>我们会经常举办各种活动</h2>
         <h2 style={{marginTop: 0}}>或者...贴贴</h2>
 
-        <h1 style={{marginBottom: 0}}>但是</h1>
+        <h1 style={{marginBottom: 0, fontSize: '3rem'}}>但是</h1>
         <h1 style={{margin: 0}}>发挥你的才能!</h1>
         <ImageTextBlock
           imageSrc={img1}
