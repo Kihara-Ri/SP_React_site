@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../css/Carousel.css';
 
-const images = [
-  '../src/assets/group_assests/IMG_4250.png',
-  '../src/assets/group_assests/IMG_4256.png',
-  '../src/assets/group_assests/IMG_4257.png',
-]
+import party1 from '../assets/group_assests/party1.png';
+import party2 from '../assets/group_assests/party2.png';
+import party3 from '../assets/group_assests/party3.png';
+import party4 from '../assets/group_assests/party4.png';
+
+const images = [party1, party2, party3, party4]
 const Carousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../css/ScrollingCarousel.css';
 
-import img1 from '../assets/group_assests/IMG_4253.png';
-import img2 from '../assets/group_assests/IMG_4254.png';
-import img3 from '../assets/group_assests/IMG_4255.png';
-import img4 from '../assets/group_assests/IMG_4256.png';
-import img5 from '../assets/group_assests/IMG_4257.png';
+import img1 from '../assets/group_assests/jinja.png';
+import img2 from '../assets/group_assests/jinja_complex.png';
+import img3 from '../assets/group_assests/magic_circle2.png';
+import img4 from '../assets/group_assests/sakura_tree.png';
+import img5 from '../assets/group_assests/spring.png';
 
 const images = [
   img1, img2, img3, img4, img5

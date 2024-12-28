@@ -16,7 +16,9 @@ const Footer: React.FC = () => {
           <img src={react_icon} alt="React logo" className="react-icon" /> React </a></p>
         <p>ver1.0.0</p>
       </div>
-      <div className="center-info">本网站仍在开发中</div>
+      <div className="center-info">
+        {/* 本网站仍在开发中 */}
+        </div>
       <div className="footer-container">
         <a href="https://github.com/Kihara-Ri/SP_React_site" target="_blank" rel="noopener noreferrer">
         <img src={github} alt="GitHub logo" className="footer-icon" /></a>

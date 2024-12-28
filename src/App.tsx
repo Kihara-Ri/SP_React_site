@@ -13,8 +13,8 @@ import Illustrate from './components/Illustrate/Illustrate';
 import Citation from './components/Citation';
 
 import Issues from './assets/icons/issues.svg';
-import img1 from './assets/group_assests/IMG_4261.png';
-import img2 from './assets/group_assests/IMG_4262.png';
+import img1 from './assets/group_assests/architecture1.png';
+import img2 from './assets/group_assests/honeycomb1.png';
 
 
 function App() {
