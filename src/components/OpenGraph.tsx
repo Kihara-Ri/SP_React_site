@@ -1,6 +1,6 @@
-import React, { useEffect, useState} from 'react';
+import { useEffect, useState} from 'react';
 import '../css/OpenGraph.css';
-import BottomArrow from '../assets/icons/bottomArrow.svg';
+// import BottomArrow from '../assets/icons/bottomArrow.svg';
 
 function OpenGraph() {
   const [overlayOpacity, setOverlayOpacity] = useState(0); // 控制overlay透明度

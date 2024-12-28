@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import '../css/Navbar.css';
 
 import icon from '../assets/icons/icon.svg';
-import group_chat from '../assets/icons/group_chat.svg';
-import link from '../assets/icons/link.svg';
-import bilibiliFont from '../assets/icons/bilibili-font.svg';
+// import group_chat from '../assets/icons/group_chat.svg';
+// import link from '../assets/icons/link.svg';
+// import bilibiliFont from '../assets/icons/bilibili-font.svg';
 
 const Navbar: React.FC = () => {
   const [showNavbar, setShowNavbar] = useState(false);

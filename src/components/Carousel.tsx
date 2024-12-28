@@ -21,9 +21,9 @@ const Carousel: React.FC = () => {
     ));
   };
 
-  const handleChangeSlider = () => {
-    console.log(`切换至${currentIndex}`)
-  }
+  // const handleChangeSlider = () => {
+  //   console.log(`切换至${currentIndex}`)
+  // }
 
   return (
     <div className="carousel">

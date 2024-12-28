@@ -46,6 +46,6 @@
 }
 
 .issue-a:hover {
-  color: #54adde;
+  color: var(--primary-blue);
   filter: brightness(1.2)
 }

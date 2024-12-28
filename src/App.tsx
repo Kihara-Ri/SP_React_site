@@ -8,7 +8,7 @@ import Carousel from './components/Carousel';
 import ImageTextBlock from './components/ImageTextBlock';
 import AboutInfo from './components/AboutInfo';
 import ScrollingCarousel from './components/ScrollingCarousel';
-import BalloonsScene from './components/BalloonsScene';
+// import BalloonsScene from './components/BalloonsScene';
 import Illustrate from './components/Illustrate/Illustrate';
 import Citation from './components/Citation';
 

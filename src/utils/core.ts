@@ -86,6 +86,7 @@ function main(canvas: HTMLCanvasElement, container: HTMLElement) {
   createBoundaries(world, width, height);
   // 创建气球
   const balloons = createBalloons(world, 20, container, balloon => {
+    console.log(balloon);
     console.log(`气球爆炸, 剩余气球: ${balloons.length - 1}`);
   });
   // 启动引擎和渲染器

@@ -7,12 +7,12 @@ function randomVector(){
   return Vector.create(Math.cos(angle), Math.sin(angle));
 }
 
-interface BalloonOptions {
-  x: number;
-  y: number;
-  radius: number;
-  color?: string;
-}
+// interface BalloonOptions {
+//   x: number;
+//   y: number;
+//   radius: number;
+//   color?: string;
+// }
 
 class Balloon {
   public body: Body;
