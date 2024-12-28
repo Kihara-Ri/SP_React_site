@@ -14,6 +14,7 @@ const Footer: React.FC = () => {
         <p>Made with{' '}
           <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="react-link">
           <img src={react_icon} alt="React logo" className="react-icon" /> React </a></p>
+        <p>ver1.0.0</p>
       </div>
       <div className="center-info">本网站仍在开发中</div>
       <div className="footer-container">

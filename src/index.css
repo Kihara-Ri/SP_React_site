@@ -6,6 +6,8 @@
   --background-gray: #c0c0c0;
   --primary-opacity: rgb(0, 0, 0, 0.2);
   --font-black: #303d56;
+  --primary-blue: #3365d1;
+  --primary-light-blue: #3c87f7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,6 +29,13 @@ a {
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 body {
@@ -52,6 +61,13 @@ body {
   font-family: 'Alibaba Sans';
   src: url('./assets/fonts/Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf') format('truetype');
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'minecraft ten';
+  src: url('./assets/fonts/MinecraftTen-VGORe.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
 

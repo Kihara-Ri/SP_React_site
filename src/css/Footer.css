@@ -18,7 +18,8 @@
 }
 
 .copy-right p {
-  margin: 5px;
+  margin: 0;
+  font-weight: lighter;
 }
 
 .copy-right .react-link {

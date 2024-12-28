@@ -35,7 +35,7 @@
     transparent 50%,
     rgba(140, 116, 71, 0.6) 0
   ); */
-  background: #c1b38d;
+  background: #e3cd9a;
   box-shadow: -2px 4px 8px rgba(0,0,0,0.1);
   clip-path: polygon(-10% -10%, -10% 110%, 110% 110%);
   z-index: 2;

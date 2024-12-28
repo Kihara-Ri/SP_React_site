@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 3px rgba(0,0,0,0.3);
-  z-index: 100;
+  z-index: 10000;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .navbar.visible {
-  background-color: rgba(51, 101, 209, 1);
+  background-color: var(--primary-blue);
   transform: translateY(0)
 }
 
@@ -36,8 +36,6 @@
   color: #fff;
   text-decoration: none;
   display: flex;
-  align-items: center;
-  justify-content: column;
 }
 
 .navbar-links {
@@ -58,4 +56,15 @@
 
 .navbar-links a:hover {
   color: #cacaca;
+}
+
+.navbar-text {
+  font-family: 'minecraft ten';
+  font-size: '24px';
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.navbar-text:hover {
+  color: var(--background-white);
 }
