@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="copy-right">
-        <p>Copyright © 2024 Kihara Ri</p>
+        <p>Copyright © 2024-2025 Kihara Ri</p>
         <p>Made with{' '}
           <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="react-link">
           <img src={react_icon} alt="React logo" className="react-icon" /> React </a></p>
